@@ -14,6 +14,9 @@ if(isset($_GET['message'])) {
         case "geenmatch":
             echo "<div class=\"alert alert-error\">Je wachtwoorden komen niet overeen!</div>";
             break;
+        case "geenrecaptcha":
+            echo "<div class=\"alert alert-error\">Je hebt geen recaptcha ingevuld!</div>";
+            break;
     }
 }
 
@@ -45,6 +48,7 @@ if(isset($_GET['message'])) {
                         <input class="mdl-textfield__input" type="email" id="sample3" name="email">
                         <label class="mdl-textfield__label">Email</label>
                     </div>
+                    <center><div class="g-recaptcha" data-sitekey="6Lebtx4UAAAAAO45AEFK0B-KLDKNhB8OaoiXNOkS"></div></center>
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" name="registersubmit">

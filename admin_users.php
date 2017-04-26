@@ -12,7 +12,25 @@
 </head>
 <body>
 <?php include 'inc/menu.php'; ?>
-
+<?php
+if(isset($_GET['message'])) {
+    $message = $_GET['message'];
+    switch ($message) {
+        case "userbanned":
+            echo "<div class=\"alert alert-success\">De gebruiker is verbannen!</div>";
+            break;
+        case "gebruikerverwijderd":
+            echo "<div class=\"alert alert-success\">De gebruiker is verwijderd!</div>";
+            break;
+        case "rankveranderd":
+            echo "<div class=\"alert alert-success\">De rank is aangepast!</div>";
+            break;
+        case "geengebruiker":
+            echo "<div class=\"alert alert-error\">Geen gebruiker gevonden!</div>";
+            break;
+    }
+}
+?>
 
 <!--BEGIN CONTENT-->
 <div class="loginCenter">
@@ -54,7 +72,7 @@
                             <td>' . $user_id . '</td>
                             <td>' . $username . '</td>
                             <td>' . $email . '</td>
-                            <td>' . $rank . '</td>
+                            <td><form method="post" action="master/user_edit_rank_process.php"><input type="number" name="editrank" value="' . $rank . '"><input type="hidden" value="' . $user_id . '" name="user_id"> <input type="submit" name="ranksubmit" style="position: absolute; left: -9999px"/></form> </td>
                             <td><a href=\'master/user_ban_process.php?user_id='. $user_id. '\'>BAN</a></td>
                             <td><a href=\'master/user_delete_process.php?user_id='. $user_id. '\'>DELETE</a></td>
                         </tr>

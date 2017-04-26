@@ -13,5 +13,5 @@ if(mysqli_num_rows($result) > 0) {
     $query = "UPDATE thewall_users SET rank='1' WHERE id='$id'";
     $result = mysqli_query($dbc,$query) or die ('Het is fout gegaan bij het updaten.');
     echo 'Bedankt! Je inschrijving is voltooid.';
-    header('Location: ../index.php');
+    header('Location: ../index.php?message=verified');
 }

@@ -12,7 +12,16 @@
 </head>
 <body>
 <?php include 'inc/menu.php'; ?>
-
+<?php
+if(isset($_GET['message'])) {
+    $message = $_GET['message'];
+    switch ($message) {
+        case "verwijderd":
+            echo "<div class=\"alert alert-success\">Het bericht is verwijderd!</div>";
+            break;
+    }
+}
+?>
 
 <!--BEGIN CONTENT-->
 <div class="loginCenter">

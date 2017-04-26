@@ -34,6 +34,12 @@
                             break;
                         case "geregistreerd":
                             echo "<div class=\"alert alert-success\">Je bent geregistreerd. Check je email!</div>";
+                            break;
+                        case "verified":
+                            echo "<div class=\"alert alert-success\">Je bent geverifieerd. Je kan nu inloggen!</div>";
+                            break;
+                        case "uploaded":
+                            echo "<div class=\"alert alert-success\">Afbeelding is geupload!</div>";
                     }
                 }
                 ?>
