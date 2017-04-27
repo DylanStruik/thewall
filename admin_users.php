@@ -50,7 +50,6 @@ if(isset($_GET['message'])) {
                             <th class="mdl-data-table__cell--non-numeric">Gebruikersnaam</th>
                             <th>Email</th>
                             <th class="mdl-data-table__cell--non-numeric">Rank</th>
-                            <th class="mdl-data-table__cell--non-numeric">Ban</th>
                             <th class="mdl-data-table__cell--non-numeric">Delete</th>
                         </tr>
                         </thead>
@@ -72,8 +71,12 @@ if(isset($_GET['message'])) {
                             <td>' . $user_id . '</td>
                             <td>' . $username . '</td>
                             <td>' . $email . '</td>
-                            <td><form method="post" action="master/user_edit_rank_process.php"><input type="number" name="editrank" value="' . $rank . '"><input type="hidden" value="' . $user_id . '" name="user_id"> <input type="submit" name="ranksubmit" style="position: absolute; left: -9999px"/></form> </td>
-                            <td><a href=\'master/user_ban_process.php?user_id='. $user_id. '\'>BAN</a></td>
+                            <td><form method="post" action="master/user_edit_rank_process.php"><select name="editrank">
+                          <option value="0" '; if($rank == 0){echo 'selected';} echo '>UNVERIFIED</option>
+                          <option value="1" '; if($rank == 1){echo 'selected';} echo '>VERIFIED</option>
+                          <option value="2" '; if($rank == 2){echo 'selected';} echo '>BANNED</option>
+                          <option value="10" '; if($rank == 10){echo 'selected';} echo '>ADMIN</option>
+                      </select><input type="hidden" value="' . $user_id . '" name="user_id"> <input type="submit" name="ranksubmit"></form> </td>
                             <td><a href=\'master/user_delete_process.php?user_id='. $user_id. '\'>DELETE</a></td>
                         </tr>
                         ';

@@ -8,7 +8,7 @@
                 <?php if ($_SESSION['loggedin'] == 0) {echo "<a class=\"mdl-navigation__link\" href=\"login.php\">Inloggen</a>";} ?>
                 <?php if ($_SESSION['loggedin'] == 0) {echo "<a class=\"mdl-navigation__link\" href=\"register.php\">Registreren</a>";} ?>
                 <?php if ($_SESSION['loggedin'] == 1) {echo "<a class=\"mdl-navigation__link\" href=\"upload.php\">Uploaden</a>";} ?>
-                <?php if ($_SESSION['rank'] == 10) {echo "<a class=\"mdl-navigation__link\" href=\"admin.php\">Admin</a>";} ?>
+                <?php if ($rank == 10) {echo "<a class=\"mdl-navigation__link\" href=\"admin.php\">Admin</a>";} ?>
                 <?php if ($_SESSION['loggedin'] == 1) {echo "<a class=\"mdl-navigation__link\" href=\"logout.php\">Uitloggen</a>";} ?>
             </nav>
         </div>
@@ -20,7 +20,7 @@
             <?php if ($_SESSION['loggedin'] == 0) {echo "<a class=\"mdl-navigation__link\" href=\"login.php\">Inloggen</a>";} ?>
             <?php if ($_SESSION['loggedin'] == 0) {echo "<a class=\"mdl-navigation__link\" href=\"register.php\">Registreren</a>";} ?>
             <?php if ($_SESSION['loggedin'] == 1) {echo "<a class=\"mdl-navigation__link\" href=\"upload.php\">Uploaden</a>";} ?>
-            <?php if ($_SESSION['rank'] == 10) {echo "<a class=\"mdl-navigation__link\" href=\"admin.php\">Admin</a>";} ?>
+            <?php if ($rank == 10) {echo "<a class=\"mdl-navigation__link\" href=\"admin.php\">Admin</a>";} ?>
             <?php if ($_SESSION['loggedin'] == 1) {echo "<a class=\"mdl-navigation__link\" href=\"logout.php\">Uitloggen</a>";} ?>
         </nav>
     </div>

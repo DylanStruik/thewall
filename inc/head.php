@@ -2,16 +2,23 @@
 
 session_start();
 
+include_once './master/config.php';
+
 if ($_SESSION['loggedin'] == 1) {
     $userid = $_SESSION["user_id"];
-    $rank = $_SESSION["rank"];
-    $username = $_SESSION["username"];
-    $loggedin = $_SESSION["loggedin"];
+
+    $sql = "SELECT * FROM thewall_users WHERE id=$userid";
+    $result = mysqli_query ($dbc, $sql) or die ('fucked up');
+    $row  = mysqli_fetch_array($result);
+
+    $rank = $row['rank'];
+    $username = $row['username'];
+
 } else {
-    $_SESSION['rank'] = -1;
-    $_SESSION['username'] = '';
-    $_SESSION['user_id'] = -1;
-    $_SESSION['loggedin'] = 0;
+    $rank = -1;
+    $username = '';
+    $userid = -1;
+    $loggedin = 0;
 }
 
 ?>

@@ -120,7 +120,7 @@ img{
 
 /* The Close Button */
 .close {
-    top: 40px;
+    top: 60px;
     right: 65px;
     color: #fff;
     font-size: 80px;
@@ -128,7 +128,6 @@ img{
     position: absolute;
     margin-right: 2%;
     margin-top: 2%;
-    z-index: 1;
 }
 
 .close:hover,

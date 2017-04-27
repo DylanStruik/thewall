@@ -2,6 +2,10 @@
 
 include_once 'config.php';
 
+if($rank == 2) {
+    header('Location: index.php?message=banned');
+}
+
 $uploaded = 0;
 if(isset($_POST['uploadsubmit'])) {
     $description = mysqli_real_escape_string($dbc,trim($_POST['omschrijving']));

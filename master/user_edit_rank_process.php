@@ -2,6 +2,10 @@
 
 include 'config.php';
 
+if($rank < 10) {
+    header('Location: index.php?message=geentoegang');
+}
+
 $user_id = $_POST['user_id'];
 $rank = $_POST['editrank'];
 

@@ -31,16 +31,25 @@ if(isset($_POST['registersubmit'])) {
             $to = $email;
             $subject = "Welkom op The Wall!";
 
-            $message = "Welkom, $username, \r\n
-                        Om te kijken of je geen robot bent is het nodig om jezelf te verifieren via een link. Kopieër en bezoek / klik de volgende link om dit te doen: \r\n
-                        http://24370.hosts.ma-cloud.nl/thewall/master/verify.php?email=$email&hashcode=$hashcode
-                        ";
+            $message = '
+                        <html>
+                            <body style="text-align: center; font-family: \'PT Sans\', sans-serif;">
+                                <div style="background-color: #3F51B5; box-shadow: 1px 5px 20px #888888; top: 0; left: 0; width: 100%; height: auto; position: absolute; color: white; font-size: .8em;"><h1 style="color: #FFFAFF;">
+                                    The Wall</h1>
+                                </div>
+                                <div id="message" style="top: 4em; position: absolute; width: 100%;">
+                                    <h3>Welkom '.$username.'!<br><br>
+                                    Klik <a href="http://24370.hosts.ma-cloud.nl/thewall/master/verify.php?email='.$email.'&hashcode='.$hashcode.' ">HIER</a> om je account te activeren!<br><br>
+                                    Indien de link niet werkt kan je de volgende URL in je eigen adresbalk plakken: <br> http://24370.hosts.ma-cloud.nl/thewall/master/verify.php?email='.$email.'&hashcode='.$hashcode.'</h3>
+                                </div>
+                            </body>
+                        </html>
+                        ';
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            $headers[] = 'From: The Wall <24370@ma-web.nl>';
 
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-            $from = "info@thewall.nl";
-            mail($to, $subject, $message, $from);
+            mail($to, $subject, $message, implode("\r\n", $headers)) or die('Cannot send mail');
             header('Location: ../index.php?message=geregistreerd');
 
     } else {
