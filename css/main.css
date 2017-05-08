@@ -187,3 +187,11 @@ img{
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
+
+#centerAlles {
+  width: 10%;
+  margin-left:40%;
+  margin-right:40%;
+  text-align: center;
+  align-content: center;
+}

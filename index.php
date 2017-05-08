@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +44,7 @@
                     }
                 }
                 ?>
-                <center>
+                <div id="centerAlles">
                     <table>
                     <tr>
                         <td>
@@ -70,7 +68,7 @@
                         </td>
                     </tr>
                 </table>
-                </center>
+                </div>
                 <div class="grid">
 
                 <?php
@@ -109,7 +107,7 @@
                 while ($row = mysqli_fetch_array($result)) {
                     $text = $row['description'];
                     $target = $row['target'];
-                    echo '<img class="modal-image" src="images/' . $target . '" alt="' . $text . '" width="200px" /><br>';
+                    echo '<img class="modal-image" src="images/' . $target . '" alt="' . $text . '" /><br>';
 
                 }
 
